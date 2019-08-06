@@ -21,7 +21,7 @@ class Home extends Component {
   render() {
     return (
     <View style={styles.container}>
-    <Text style={styles.text}>Hola Carlos,</Text>    
+    <Text style={styles.text}>Hola Jefferson,</Text>    
          <Text style={styles.text}>Logeaste con Tu red social</Text>  
         
         <TouchableOpacity 
