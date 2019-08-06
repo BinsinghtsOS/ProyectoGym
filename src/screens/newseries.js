@@ -75,6 +75,7 @@ class newSeries extends Component {
         <TouchableOpacity 
             style={styles.fab2}
             activeOpacity={0.7}
+            
           >    
          <Text style={styles.text}>Aceptar </Text>
           </TouchableOpacity>     

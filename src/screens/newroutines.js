@@ -12,8 +12,7 @@ import {
 
 class newRoutines extends Component {
   handlePress = () =>{
-     this.props.navigation.navigate('Home')
-     Alert.alert('Floating Button Clicked');
+     this.props.navigation.navigate('newSet')
   }
 
 
@@ -64,6 +63,7 @@ class newRoutines extends Component {
         <TouchableOpacity 
             style={styles.fab}
             activeOpacity={0.7}
+            onPress={this.handlePress}
           >    
          <Text style={styles.text2}>+SET</Text>
           </TouchableOpacity>

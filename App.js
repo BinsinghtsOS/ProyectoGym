@@ -13,18 +13,49 @@ import { createStackNavigator, createAppContainer ,createSwitchNavigator} from "
 const AppNavigator = createSwitchNavigator({
   LogginScreen: {
     screen:Loggin,
+    navigationOptions: {
+      headerVisible: false,
+      headerVisible: null,
+  }
   },
- Home:Home,
- Routines:Routines
+  Home:{
+    screen:Home,
+    navigationOptions: {
+      headerVisible: false,
+      headerVisible: null,
+  }
+  },
+  Routines:Routines,
+  },{
+    headerMode: 'none',
+    headerVisible: null,
   }
 );
-
-
 const InitialNavigator = createSwitchNavigator({
   Loader: Loader,
   App: AppNavigator
-});
+},{
+  headerMode: 'none',
+  headerVisible: null,
+}
+);
 
-export default createAppContainer(InitialNavigator);
+const newRutinesScreen = createStackNavigator({
+  home:{
+    screen:InitialNavigator,
+    navigationOptions: {
+      headerVisible: false,
+      headerVisible: null,
+  }
+  },
+  newRoutines:newRoutines,
+  newSet:newSet,
+  newSeries:newSeries
+},
+
+);
+
+
+export default createAppContainer(newRutinesScreen);
 
 

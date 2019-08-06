@@ -12,8 +12,7 @@ import {
 
 class newSet extends Component {
   handlePress = () =>{
-     this.props.navigation.navigate('Home')
-     Alert.alert('Floating Button Clicked');
+     this.props.navigation.navigate('newSeries')
   }
 
 
@@ -66,6 +65,7 @@ class newSet extends Component {
         </View>
         
         <TouchableOpacity 
+        onPress={this.handlePress}
             style={styles.fab}
             activeOpacity={0.7}
           >    

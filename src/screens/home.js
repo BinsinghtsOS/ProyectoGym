@@ -12,12 +12,8 @@ import {
 
 class Home extends Component {
   handlePress = () =>{
-     this.props.navigation.navigate('Home')
-     Alert.alert('Floating Button Clicked');
+     this.props.navigation.navigate('Routines')
   }
-
-
-
   render() {
     return (
     <View style={styles.container}>
@@ -25,6 +21,7 @@ class Home extends Component {
          <Text style={styles.text}>Logeaste con Tu red social</Text>  
         
         <TouchableOpacity 
+        onPress={this.handlePress}
             style={styles.fab2}
             activeOpacity={0.7}   >    
          <Text style={styles.text2}>Mis Rutinas </Text>

@@ -12,8 +12,7 @@ import {
 
 class Routines extends Component {
   handlePress = () =>{
-     this.props.navigation.navigate('Home')
-     Alert.alert('Floating Button Clicked');
+     this.props.navigation.navigate('newRoutines')
   }
 
 
@@ -55,6 +54,7 @@ class Routines extends Component {
           <TouchableOpacity 
             style={styles.fab}
             activeOpacity={0.7}
+            onPress={this.handlePress}
           >    
          <Text style={styles.text}>+</Text>
           </TouchableOpacity>
