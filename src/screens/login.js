@@ -8,12 +8,10 @@ import {
   TextInput,
   Button,
 } from 'react-native';
-
 class Loggin extends Component {
   handlePress = () =>{
      this.props.navigation.navigate('Home')
   }
- 
   render() {
     return (
     <View style={styles.container}>
