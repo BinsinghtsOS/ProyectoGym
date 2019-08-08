@@ -8,18 +8,40 @@ import newSet from './src/screens/newset';
 import newSeries from './src/screens/newseries';
 
 import { createStackNavigator, createAppContainer ,createSwitchNavigator} from "react-navigation";
+import { Header } from "react-native/Libraries/NewAppScreen";
 
 
-const AppNavigator = createSwitchNavigator({
+
+const AuthStack = createStackNavigator({
+  Routines:{
+    screen:Routines,
+    navigationOptions: {
+   header: null //this will hide the header
+    },
+  },
+  newRoutines:newRoutines,
+  newSet:newSet,
+  newSeries:newSeries
+  },
+  
+ 
+);
+
+const App = createSwitchNavigator({
+  Splash:Loader,
   Loggin:Loggin,
-  Splash:Loader
+  Home:Home,
+  newrt:{
+    screen: AuthStack,
+  },
+
   },{
-    initialRouteName: 'Splash'
+    initialRouteName: 'Splash',
+    Header:null
   }
 );
 
 
-
-export default createAppContainer(AppNavigator);
+export default createAppContainer(App);
 
 
