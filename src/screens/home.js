@@ -26,10 +26,6 @@ class Home extends Component {
             activeOpacity={0.7}   >    
          <Text style={styles.text2}>Mis Rutinas </Text>
           </TouchableOpacity>
-       
-
-
-          
     </View>
     )
   }
