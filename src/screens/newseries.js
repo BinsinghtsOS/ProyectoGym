@@ -52,6 +52,7 @@ class newSeries extends Component {
               underlineColorAndroid="transparent"
             />
             </View>
+            
             <View style={styles.SectionStyle}>
              <Text>Cantidad</Text>
             <TextInput
