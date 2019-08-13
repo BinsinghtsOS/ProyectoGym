@@ -7,7 +7,8 @@ import {
   TextInput,
   FlatList,
   TouchableOpacity,
-  Alert
+  Alert,
+  Picker
 } from 'react-native';
 
 class newSeries extends Component {
@@ -16,7 +17,13 @@ class newSeries extends Component {
      Alert.alert('Floating Button Clicked');
   }
 
-
+  constructor(){
+		super();
+		this.state={
+			PickerValue:''
+			
+		}
+	};
 
   render() {
     return (
@@ -44,15 +51,20 @@ class newSeries extends Component {
             />
             </View>
             <View style={styles.SectionStyle}>
-             <Text>Objetivo</Text>
-            <TextInput
-
-              style={styles.text3}
-              placeholder="Objetivo"
-              underlineColorAndroid="transparent"
-            />
+             <Text style={{textAlign:'left'}}>Objetivo</Text>
+            <View style={styles.selectorr}>
+                  <Picker
+                         style={{ width: 128,color: '#aeabab',}}
+                                selectedValue={this.state.PickerValue}
+                            onValueChange={(itemValue,itemIndex) => this.setState({PickerValue:itemValue})}
+		                >
+                    <Picker.Item label="Repeticion" value="Repeticion" />
+                    <Picker.Item label="Tiempo" value="Tiempo"/>
+                    </Picker>
             </View>
-            
+           
+           
+            </View>
             <View style={styles.SectionStyle}>
              <Text>Cantidad</Text>
             <TextInput
@@ -177,8 +189,11 @@ const styles = StyleSheet.create({
       color:'black'
       
     },
-
-
+    selectorr:{
+      color: '#aeabab',
+       flex: 1, 
+      marginLeft:"50%",
+    }
   })
 
 export default newSeries;
