@@ -11,33 +11,8 @@ import { createStackNavigator, createAppContainer ,createSwitchNavigator} from "
 import { Header } from "react-native/Libraries/NewAppScreen";
 
 
-
-const AuthStack = createStackNavigator({
-  Routines:{
-    screen:Routines,
-    navigationOptions: {
-   header: null //this will hide the header
-    },
-  },
-  newRoutines:newRoutines,
-  newSet:newSet,
-  newSeries:newSeries
-  },
-  
- 
-);
-
 const App = createSwitchNavigator({
-  Splash:Loader,
-  Loggin:Loggin,
-  Home:Home,
-  newrt:{
-    screen: AuthStack,
-  },
-
-  },{
-    initialRouteName: 'Splash',
-    Header:null
+  Splash:newSeries,
   }
 );
 

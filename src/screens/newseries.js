@@ -12,19 +12,14 @@ import {
 } from 'react-native';
 
 class newSeries extends Component {
+  state = {user: ''}
+   updateUser = (user) => {
+      this.setState({ user: user })
+   }
   handlePress = () =>{
      this.props.navigation.navigate('Home')
      Alert.alert('Floating Button Clicked');
   }
-
-  constructor(){
-		super();
-		this.state={
-			PickerValue:''
-			
-		}
-	};
-
   render() {
     return (
     <View style={styles.container}>
@@ -55,8 +50,8 @@ class newSeries extends Component {
             <View style={styles.selectorr}>
                   <Picker
                          style={{ width: 128,color: '#aeabab',}}
-                                selectedValue={this.state.PickerValue}
-                            onValueChange={(itemValue,itemIndex) => this.setState({PickerValue:itemValue})}
+                                selectedValue={this.state.user}
+                                 onValueChange={this.updateUser}
 		                >
                     <Picker.Item label="Repeticion" value="Repeticion" />
                     <Picker.Item label="Tiempo" value="Tiempo"/>
@@ -66,7 +61,7 @@ class newSeries extends Component {
            
             </View>
             <View style={styles.SectionStyle}>
-             <Text>Cantidad</Text>
+             <Text>{this.state.user}</Text>
             <TextInput
 
               style={styles.text3}
