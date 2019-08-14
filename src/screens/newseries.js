@@ -12,14 +12,19 @@ import {
 } from 'react-native';
 
 class newSeries extends Component {
-  state = {user: ''}
-   updateUser = (user) => {
-      this.setState({ user: user })
-   }
+  state = {obje: 'Repeticion',
+          obt:''
+        }
+
+  
   handlePress = () =>{
      this.props.navigation.navigate('Home')
      Alert.alert('Floating Button Clicked');
+     
   }
+  updateObje = (obje) => {
+    this.setState({ obje: obje })     
+ }
   render() {
     return (
     <View style={styles.container}>
@@ -49,19 +54,18 @@ class newSeries extends Component {
              <Text style={{textAlign:'left'}}>Objetivo</Text>
             <View style={styles.selectorr}>
                   <Picker
-                         style={{ width: 128,color: '#aeabab',}}
-                                selectedValue={this.state.user}
-                                 onValueChange={this.updateUser}
+                         style={{ width: 128,color: '#aeabab',}} selectedValue={this.state.obje} onValueChange={this.updateObje}
+                                // onValueChange={this.updateObj}
 		                >
                     <Picker.Item label="Repeticion" value="Repeticion" />
                     <Picker.Item label="Tiempo" value="Tiempo"/>
                     </Picker>
             </View>
            
-           
             </View>
             <View style={styles.SectionStyle}>
-             <Text>{this.state.user}</Text>
+             
+             <Text>{this.state.obje}</Text>
             <TextInput
 
               style={styles.text3}
@@ -69,8 +73,11 @@ class newSeries extends Component {
               underlineColorAndroid="transparent"
             />
             </View>
+    
+            
+          
             <View style={styles.SectionStyle}>
-             <Text>Tiempo</Text>
+             <Text > {this.state.obt}</Text>
             <TextInput
 
               style={styles.text3}
