@@ -7,9 +7,15 @@ import {
   TextInput,
   FlatList,
   TouchableOpacity,
-  Alert
+  Alert,
+  TouchableWithoutFeedback,
+  Keyboard,
 } from 'react-native';
-
+const DismissKeyBoard= ({children})=>(
+  <TouchableWithoutFeedback onPress={()=>Keyboard.dismiss()}>
+    {children}
+  </TouchableWithoutFeedback>
+);
 class newRoutines extends Component {
   handlePress = () =>{
      this.props.navigation.navigate('newSet')
@@ -19,6 +25,7 @@ class newRoutines extends Component {
 
   render() {
     return (
+      <DismissKeyBoard>
     <View style={styles.container}>
         <View style={styles.conhead}>
             <Text style={styles.tittle}>
@@ -58,8 +65,8 @@ class newRoutines extends Component {
         <Text style={styles.text3} > 40 kg - 10 rpts  </Text>
         
         </View>
-        </View>
-        
+        </View> 
+        <View  style={styles.container3} >
         <TouchableOpacity 
             style={styles.fab}
             activeOpacity={0.7}
@@ -67,21 +74,15 @@ class newRoutines extends Component {
           >    
          <Text style={styles.text2}>+SET</Text>
           </TouchableOpacity>
-
-      
-
-        
         <TouchableOpacity 
             style={styles.fab2}
             activeOpacity={0.7}
           >    
          <Text style={styles.text}>Aceptar </Text>
           </TouchableOpacity>
-       
-
-
-          
+          </View>
     </View>
+    </DismissKeyBoard>
     )
   }
 }
@@ -93,14 +94,17 @@ const styles = StyleSheet.create({
        // alignItems: 'center',
        // justifyContent: 'center',
       },
-      
+      container3: {
+        alignItems: 'center',
+        top:'20%' 
+      },
       fab:{
         height: 30,
         width: 80,
         borderRadius: 200,
-        position: 'absolute',
-       bottom : 90,
-        right: 20,
+       // position: 'absolute',
+        top : "40%",
+        left: "35%",
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor:'#3CDABF',
@@ -108,9 +112,8 @@ const styles = StyleSheet.create({
         borderRadius: 200,  
         height: 40,
         width: 130,
-        position: 'absolute',
-        bottom: 30,
-        left: 110,
+       // position: 'absolute',
+       top: "45%",
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor:'#3CDABF',

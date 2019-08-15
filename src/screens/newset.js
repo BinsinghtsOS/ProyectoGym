@@ -7,18 +7,28 @@ import {
   TextInput,
   FlatList,
   TouchableOpacity,
-  Alert
+  Alert,
+  TouchableWithoutFeedback,
+  Keyboard,
+  Picker
 } from 'react-native';
-
+const DismissKeyBoard= ({children})=>(
+  <TouchableWithoutFeedback onPress={()=>Keyboard.dismiss()}>
+    {children}
+  </TouchableWithoutFeedback>
+);
 class newSet extends Component {
+  state = {datepickerValue: 'Calentamiento',
+}
   handlePress = () =>{
      this.props.navigation.navigate('newSeries')
   }
-
-
-
+  updateDatePicker = (datepickerValue) => {
+    this.setState({ datepickerValue: datepickerValue })     
+ }
   render() {
     return (
+      <DismissKeyBoard>
     <View style={styles.container}>
         <View style={styles.conhead}>
             <Text style={styles.tittle}>
@@ -43,13 +53,16 @@ class newSet extends Component {
             />
             </View>
             <View style={styles.SectionStyle}>
-             <Text>Etiqueta</Text>
-            <TextInput
-
-              style={styles.text3}
-              placeholder="Tipo de Rutina "
-              underlineColorAndroid="transparent"
-            />
+             <Text style={{textAlign:'left'}}>Etiqueta</Text>
+            <View style={styles.selectorr}>
+                  <Picker
+                  style={{ width: 150,color: '#aeabab',}} selectedValue={this.state.datepickerValue} onValueChange={this.updateDatePicker}
+                   >
+                    <Picker.Item label="Calentamiento" value="Calentamiento" />
+                    <Picker.Item label="Intermedio" value="Intermedio" />
+                    <Picker.Item label="Estiramiento" value="Estiramiento"/>
+                    </Picker>
+            </View>
             </View>
         </View>
 
@@ -63,29 +76,23 @@ class newSet extends Component {
             </View>
        
         </View>
-        
-        <TouchableOpacity 
-        onPress={this.handlePress}
-            style={styles.fab}
-            activeOpacity={0.7}
-          >    
-         <Text style={styles.text2}>+SERIE</Text>
+        <View  style={styles.container3} >
+                <TouchableOpacity 
+                onPress={this.handlePress}
+                    style={styles.fab}
+                    activeOpacity={0.7}
+                  >    
+                <Text style={styles.text2}>+SERIE</Text>
           </TouchableOpacity>
-
-      
-
-        
-        <TouchableOpacity 
-            style={styles.fab2}
-            activeOpacity={0.7}
-          >    
-         <Text style={styles.text}>Aceptar </Text>
-          </TouchableOpacity>
-       
-
-
-          
+                  <TouchableOpacity 
+                      style={styles.fab2}
+                      activeOpacity={0.7}
+                    >    
+                  <Text style={styles.text}>Aceptar </Text>
+                    </TouchableOpacity>
+          </View> 
     </View>
+    </DismissKeyBoard>
     )
   }
 }
@@ -97,14 +104,23 @@ const styles = StyleSheet.create({
        // alignItems: 'center',
        // justifyContent: 'center',
       },
+      container3: {
+        alignItems: 'center',
+        top:'20%' 
+      },
+      selectorr:{
+        color: '#aeabab',
+         flex: 1, 
+        marginLeft:"40%",
+      },
       
       fab:{
         height: 30,
         width: 80,
         borderRadius: 200,
-        position: 'absolute',
-       bottom : 90,
-        right: 20,
+       // position: 'absolute',
+        top : "40%",
+        left: "35%",
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor:'#3CDABF',
@@ -112,9 +128,9 @@ const styles = StyleSheet.create({
         borderRadius: 200,  
         height: 40,
         width: 130,
-        position: 'absolute',
-        bottom: 30,
-        left: 110,
+       // position: 'absolute',
+        top: "45%",
+       // left: 110,
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor:'#3CDABF',

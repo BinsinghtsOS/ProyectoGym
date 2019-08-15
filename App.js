@@ -1,4 +1,3 @@
-import React from "react";
 import Loader from './src/screens/loader';
 import Loggin from './src/screens/login';
 import Home from './src/screens/home';
@@ -6,12 +5,7 @@ import Routines from './src/screens/routines';
 import newRoutines from './src/screens/newroutines';
 import newSet from './src/screens/newset';
 import newSeries from './src/screens/newseries';
-
 import { createStackNavigator, createAppContainer ,createSwitchNavigator} from "react-navigation";
-import { Header } from "react-native/Libraries/NewAppScreen";
-
-
-
 const AuthStack = createStackNavigator({
   Routines:{
     screen:Routines,
@@ -23,10 +17,7 @@ const AuthStack = createStackNavigator({
   newSet:newSet,
   newSeries:newSeries
   },
-  
- 
-);
-
+ );
 const App = createSwitchNavigator({
   Splash:Loader,
   Loggin:Loggin,
@@ -40,6 +31,4 @@ const App = createSwitchNavigator({
     Header:null
   }
 );
-
-
 export default createAppContainer(App);
