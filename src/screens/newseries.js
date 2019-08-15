@@ -130,7 +130,7 @@ const styles = StyleSheet.create({
       container3: {
         
         alignItems: 'center',
-        top:'30%'
+        top:'20%'
         
       },
         fab2:{
