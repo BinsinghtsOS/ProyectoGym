@@ -7,26 +7,48 @@ import {
   TextInput,
   FlatList,
   TouchableOpacity,
+  TouchableWithoutFeedback,
+  Keyboard,
   Alert,
   Picker
 } from 'react-native';
+const DismissKeyBoard= ({children})=>(
+  <TouchableWithoutFeedback onPress={()=>Keyboard.dismiss()}>
+    {children}
+  </TouchableWithoutFeedback>
+);
 
 class newSeries extends Component {
-  state = {obje: 'Repeticion',
-          obt:''
-        }
+  state = {datepickerValue: 'Repeticion',
+          }
 
-  
+  valueOption() {
+          switch(this.state.datepickerValue) {
+          case 'Repeticion':
+            return ('Cantidad')
+          case 'Tiempo':
+            return ('Minutos')
+       }
+     } 
+       valueSubOption() {
+        switch(this.state.datepickerValue) {
+        case 'Repeticion':
+          return ('#')
+        case 'Tiempo':
+          return ('min')
+     }
+     }     
   handlePress = () =>{
      this.props.navigation.navigate('Home')
      Alert.alert('Floating Button Clicked');
      
   }
-  updateObje = (obje) => {
-    this.setState({ obje: obje })     
+  updateDatePicker = (datepickerValue) => {
+    this.setState({ datepickerValue: datepickerValue })     
  }
   render() {
     return (
+      <DismissKeyBoard>
     <View style={styles.container}>
         <View style={styles.conhead}>
             <Text style={styles.tittle}>
@@ -46,7 +68,7 @@ class newSeries extends Component {
             <TextInput
 
               style={styles.text3}
-              placeholder="Quantiti"
+              placeholder="Kg"
               underlineColorAndroid="transparent"
             />
             </View>
@@ -54,47 +76,42 @@ class newSeries extends Component {
              <Text style={{textAlign:'left'}}>Objetivo</Text>
             <View style={styles.selectorr}>
                   <Picker
-                         style={{ width: 128,color: '#aeabab',}} selectedValue={this.state.obje} onValueChange={this.updateObje}
-                                // onValueChange={this.updateObj}
-		                >
+                  style={{ width: 128,color: '#aeabab',}} selectedValue={this.state.datepickerValue} onValueChange={this.updateDatePicker}
+                   >
                     <Picker.Item label="Repeticion" value="Repeticion" />
                     <Picker.Item label="Tiempo" value="Tiempo"/>
                     </Picker>
             </View>
-           
             </View>
+            <View style={styles.container2} > 
+            <Text style={styles.tittle}>
+            {this.state.datepickerValue}
+            </Text>  
+            </View>
+
             <View style={styles.SectionStyle}>
-             
-             <Text>{this.state.obje}</Text>
+             <Text > {this.valueOption()}</Text>
             <TextInput
 
               style={styles.text3}
-              placeholder="#"
-              underlineColorAndroid="transparent"
-            />
-            </View>
-    
-            
-          
-            <View style={styles.SectionStyle}>
-             <Text > {this.state.obt}</Text>
-            <TextInput
-
-              style={styles.text3}
-              placeholder="Min"
+              placeholder= {this.valueSubOption()}
               underlineColorAndroid="transparent"
             />
             </View>
         </View>
-
-        <TouchableOpacity 
+            <View  style={styles.container3} >
+            <TouchableOpacity 
             style={styles.fab2}
             activeOpacity={0.7}
             
           >    
          <Text style={styles.text}>Aceptar </Text>
-          </TouchableOpacity>     
+          </TouchableOpacity>  
+              
+            </View>
+           
     </View>
+    </DismissKeyBoard>
     )
   }
 }
@@ -103,27 +120,25 @@ const styles = StyleSheet.create({
         paddingTop:35,
         flex: 1,
         padding: 20,
-       // alignItems: 'center',
+      },
+      container2: {
+        paddingTop:35,   
+        flexDirection: 'row',
+        //alignItems: 'center',
        // justifyContent: 'center',
       },
-      
-      fab:{
-        height: 30,
-        width: 80,
-        borderRadius: 200,
-        position: 'absolute',
-       bottom : 90,
-        right: 20,
-        justifyContent: 'center',
+      container3: {
+        
         alignItems: 'center',
-        backgroundColor:'#3CDABF',
-      },fab2:{
+        top:'30%'
+        
+      },
+        fab2:{
         borderRadius: 200,  
         height: 40,
         width: 130,
-        position: 'absolute',
-        bottom: 30,
-        left: 110,
+       // position: 'absolute',
+       //// bottom: 30,
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor:'#3CDABF',
