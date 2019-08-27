@@ -1,0 +1,74 @@
+{
+    "routines": 
+        [
+            {
+                "id":1,
+                "nameRoutine":"Bisepts",
+                    "set":[
+                            {
+                                "typeSet":"Calentamiento",
+                                "nameSet":"Circuito1",
+                                "repeticionSet":5,
+                                "serie":[
+                                          {
+                                            "nameSerie":"Ejercicio 1",
+                                            "peso":50,
+                                            "typeSerie":"Tiempo",
+                                            "tiempo":20,
+                                            "cantidadRep":""
+                                        }
+                                     ]
+                             },
+                             {
+                                "typeSet":"Intermedio",
+                                "nameSet":"Trotar",
+                                "repeticionSet":5,
+                                "serie":[
+                                          {
+                                            "nameSerie":"Ejercicio 1",
+                                            "peso":50,
+                                            "typeSerie":"Tiempo",
+                                            "tiempo":20,
+                                            "cantidadRep":""
+                                        }
+                                     ]
+                             },
+                             {
+                                "typeSet":"Estiramiento",
+                                "nameSet":"Pecho",
+                                "repeticionSet":5,
+                                "serie":[
+                                          {
+                                            "nameSerie":"Ejercicio 1",
+                                            "peso":50,
+                                            "typeSerie":"Tiempo",
+                                            "tiempo":20,
+                                            "cantidadRep":""
+                                        }
+                                     ]
+                             }
+                        ]
+             },
+             {
+                "id":2,
+                "nameRoutine":"Salticos",
+                    "set":[
+                            {
+                                "typeSet":"Calentamiento",
+                                "nameSet":"Circuito1",
+                                "repeticionSet":5,
+                                "serie":[
+                                        {
+                                            "nameSerie":"Ejercicio 1",
+                                            "peso":50,
+                                            "typeSerie":"Tiempo",
+                                            "tiempo":20,
+                                            "cantidadRep":""
+                                        }
+                                     ]
+                             }
+                        ]
+             }
+
+        ]
+}

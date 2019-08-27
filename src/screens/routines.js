@@ -7,15 +7,22 @@ import {
   TextInput,
   FlatList,
   TouchableOpacity,
-  Alert
 } from 'react-native';
+import ajax from '../../service/FetchData';
 
 class Routines extends Component {
-  handlePress = () =>{
-     this.props.navigation.navigate('newRoutines')
+ 
+  state = {
+    routines: [],
+  }
+  async componentDidMount() {
+    const routines = await ajax.fetchRoutines();
+    this.setState({routines});
   }
 
-
+  handlePress = () =>{
+    this.props.navigation.navigate('newRoutines')
+ }
 
   render() {
     return (
@@ -50,7 +57,23 @@ class Routines extends Component {
           renderItem={({item}) => <Text style={styles.item}>{item.key}</Text>}
         />
         </View>
+      
+     
+        <FlatList
+          data={this.state.routines}
+          showsVerticalScrollIndicator={false}
+          renderItem={({item}) => <View style={{paddingTop:10}}>
+                                  <View style={styles.containerr}>
+                                  <Text style={styles.tittle2}>
+                                  {item.nameRoutine}
+                                  {item.id }
 
+                                  </Text>
+                                  </View>
+                                  </View>
+                                }
+          keyExtractor={item => item.id}
+           />
           <TouchableOpacity 
             style={styles.fab}
             activeOpacity={0.7}
@@ -70,10 +93,15 @@ const styles = StyleSheet.create({
        // alignItems: 'center',
        // justifyContent: 'center',
       },
+      flatview: {
+        justifyContent: 'center',
+        paddingTop: 30,
+        borderRadius: 2,
+      },
 
     containerr: {
         padding: 15,
-        borderRadius: 4,
+         borderRadius: 4,
         backgroundColor:'#41B5E6',
        // alignItems: 'center',
        // justifyContent: 'center',
