@@ -20,11 +20,14 @@ class Routines extends Component {
     this.setState({routines});
   }
 
+  
+
   handlePress = () =>{
     this.props.navigation.navigate('newRoutines')
  }
 
   render() {
+    console.log(this.state)
     return (
     <View style={styles.container}>
         <View style={styles.conhead}>
@@ -44,35 +47,28 @@ class Routines extends Component {
             />
             </View>
         </View>
-        <View style={styles.containerr} >
-        <Text style={styles.tittle2}>
-            Rutina Biceps
-        </Text>
-        <FlatList
-          data={[
-            {key: 'Calentamiento'},
-            {key: 'Intermedio'},
-            {key: 'Estiramiento'},
-          ]}
-          renderItem={({item}) => <Text style={styles.item}>{item.key}</Text>}
-        />
-        </View>
-      
-     
+
         <FlatList
           data={this.state.routines}
           showsVerticalScrollIndicator={false}
-          renderItem={({item}) => <View style={{paddingTop:10}}>
+          renderItem={({item,index}) => <View style={{paddingTop:10}}>
                                   <View style={styles.containerr}>
                                   <Text style={styles.tittle2}>
-                                  {item.nameRoutine}
-                                  {item.id }
-
+                                  {item.nameRoutine}                                
                                   </Text>
-                                  </View>
+                                    <FlatList
+                                      data={item.seto}
+                                       showsVerticalScrollIndicator={false}
+                                      renderItem={({item,index}) => 
+                                        <Text style={styles.item}>{item.typeSet}</Text>
+                                        
+                                         }
+                                          keyExtractor={(item, index) => index.toString()}
+                                         />     
+                                    </View>
                                   </View>
                                 }
-          keyExtractor={item => item.id}
+                                keyExtractor={(item, index) => index.toString()}
            />
           <TouchableOpacity 
             style={styles.fab}

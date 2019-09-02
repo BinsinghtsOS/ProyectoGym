@@ -2,10 +2,11 @@
     "routines": 
         [
             {
-                "id":1,
+                "id":0,
                 "nameRoutine":"Bisepts",
-                    "set":[
+                    "seto":[
                             {
+                                "id":0,
                                 "typeSet":"Calentamiento",
                                 "nameSet":"Circuito1",
                                 "repeticionSet":5,
@@ -20,6 +21,7 @@
                                      ]
                              },
                              {
+                                "id":1,
                                 "typeSet":"Intermedio",
                                 "nameSet":"Trotar",
                                 "repeticionSet":5,
@@ -34,6 +36,7 @@
                                      ]
                              },
                              {
+                                "id":2,
                                 "typeSet":"Estiramiento",
                                 "nameSet":"Pecho",
                                 "repeticionSet":5,
@@ -50,10 +53,11 @@
                         ]
              },
              {
-                "id":2,
+                "id":1,
                 "nameRoutine":"Salticos",
-                    "set":[
+                    "seto":[
                             {
+                                "id":0,
                                 "typeSet":"Calentamiento",
                                 "nameSet":"Circuito1",
                                 "repeticionSet":5,
@@ -68,7 +72,134 @@
                                      ]
                              }
                         ]
+             },
+             {
+                "id":2,
+                "nameRoutine":"Pecho",
+                    "seto":[
+                            {
+                                "id":0,
+                                "typeSet":"Calentamiento",
+                                "nameSet":"Circuito1",
+                                "repeticionSet":5,
+                                "serie":[
+                                          {
+                                            "nameSerie":"Ejercicio 1",
+                                            "peso":50,
+                                            "typeSerie":"Tiempo",
+                                            "tiempo":20,
+                                            "cantidadRep":""
+                                        }
+                                     ]
+                             },
+                             {
+                                "id":1,
+                                "typeSet":"Intermedio",
+                                "nameSet":"Trotar",
+                                "repeticionSet":5,
+                                "serie":[
+                                          {
+                                            "nameSerie":"Ejercicio 1",
+                                            "peso":50,
+                                            "typeSerie":"Tiempo",
+                                            "tiempo":20,
+                                            "cantidadRep":""
+                                        }
+                                     ]
+                             }
+
+                     ]
+             },
+             {
+                "id":3,
+                "nameRoutine":"Gemelos",
+                    "seto":[
+                            {
+                                "id":0,
+                                "typeSet":"Calentamiento",
+                                "nameSet":"Circuito1",
+                                "repeticionSet":5,
+                                "serie":[
+                                          {
+                                            "nameSerie":"Ejercicio 1",
+                                            "peso":50,
+                                            "typeSerie":"Tiempo",
+                                            "tiempo":20,
+                                            "cantidadRep":""
+                                        }
+                                     ]
+                             },
+                             {
+                                "id":1,
+                                "typeSet":"Estiramiento",
+                                "nameSet":"Trotar",
+                                "repeticionSet":5,
+                                "serie":[
+                                          {
+                                            "nameSerie":"Ejercicio 1",
+                                            "peso":50,
+                                            "typeSerie":"Tiempo",
+                                            "tiempo":20,
+                                            "cantidadRep":""
+                                        }
+                                     ]
+                             }
+
+                     ]
+             },
+             {
+                "id":4,
+                "nameRoutine":"Pierna",
+                    "seto":[
+                            {
+                                "id":0,
+                                "typeSet":"Calentamiento",
+                                "nameSet":"Circuito1",
+                                "repeticionSet":5,
+                                "serie":[
+                                          {
+                                            "nameSerie":"Ejercicio 1",
+                                            "peso":50,
+                                            "typeSerie":"Tiempo",
+                                            "tiempo":20,
+                                            "cantidadRep":""
+                                        }
+                                     ]
+                             },
+                             {
+                                "id":1,
+                                "typeSet":"Intermedio",
+                                "nameSet":"Trotar",
+                                "repeticionSet":5,
+                                "serie":[
+                                          {
+                                            "nameSerie":"Ejercicio 1",
+                                            "peso":50,
+                                            "typeSerie":"Tiempo",
+                                            "tiempo":20,
+                                            "cantidadRep":""
+                                        }
+                                     ]
+                             },
+                             {
+                                "id":2,
+                                "typeSet":"Estiramiento",
+                                "nameSet":"Trotar",
+                                "repeticionSet":5,
+                                "serie":[
+                                          {
+                                            "nameSerie":"Ejercicio 1",
+                                            "peso":50,
+                                            "typeSerie":"Tiempo",
+                                            "tiempo":20,
+                                            "cantidadRep":""
+                                        }
+                                     ]
+                             }
+
+                     ]
              }
+
 
         ]
 }
